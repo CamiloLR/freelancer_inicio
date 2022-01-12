@@ -1,0 +1,263 @@
+
+/*tabla de pinturas*/
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3; 
+}
+/* primeras dos lineas de codigo ha utilizar en todos los proyectos, 6rem = 60px */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /*va acompañado del :before, after "codigo de abajo"*/
+    scroll-snap-type: y mandatory;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; /*si se aplica padding, border o margin no se van a sumar entre si*/
+  }
+
+body {
+    font-size: 16px; /* 1rem = 10px */
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*degradado de fondo*/
+}
+.boton {
+    cursor: pointer;
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(66,66,66,0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(66,66,66,0.54);
+    box-shadow: 0px 5px 15px 0px rgba(66,66,66,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+h1,h2,h3 {
+    text-align: center;
+}
+.titulo {
+    text-align: center;
+    font-size: 3.8rem;
+}
+.titulo span {
+    font-size: 2rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none; 
+    text-transform: uppercase; /*mayuscula*/
+    font-weight: bold; /*en negrita*/
+    border-radius: .5rem; /*esquinas redondas*/
+    width: 90%;
+    text-align: center;
+    border: none;
+
+}
+
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+/*@media (min-width: 480px) {
+    
+} para celulares*/
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row; /**/
+        justify-content: space-between; /*deja espacios entre cada palabra en el nav*/
+    }
+
+/*@media (min-width: 1400px) {
+    
+} para computadoras*/
+
+}
+.navegacion-principal a {
+    display: block; /* se colocan uno debajo del otro sin importar el contenido*/
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none; /*quita las lineas debajo del texto en el nav*/
+    font-size: 2rem; /*tamaño de la fuente*/
+    font-weight: 700; /*grosor de la fuente*/
+    padding: 1rem;
+}
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro)
+}
+
+.hero {
+    background-image: url(../img/hero.jpg); /* poner una imagen de fondo*/
+    background-repeat: no-repeat; /* evita que la imagen se repita al hacer grande la pantalla*/
+    background-size: cover; /* hace la imagen mas grande para ajustarla a pantalla*/
+    height: 450px;
+    margin-bottom: 2rem;
+    
+    position: relative; /*se coloca para poder darle posicion absoluta a un elemento que este dentro de este*/
+}
+.contenido-hero {
+    position: absolute;
+    background-color: rgba( 0,0,0, .8 ); /*transparencia*/
+    width: 100%;
+    height: 100%;
+    /*alinear vertical y horizontalmente en cualquier proyecto*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /**/
+}
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+.ubicacion {
+    display: flex;
+    align-items: flex-end; /* alinear verticalmente*/
+}
+/*scroll-snap para hacer salto de scroll a diferentes secciones*/
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/*servicios*/
+@media (min-width: 768px) {
+    .servicios {
+        display: grid; /*agrupar contenido dentro de un area definidad añadiendo los valores*/
+        grid-template-columns: 1fr 1fr 1fr; /*dividir en 3 fracciones*/
+    /* es lo mismo pero en diferente sintaxis
+       grid-template-columns: repeat(3, 1fr);
+       grid-template-columns: 33.3% 33.3% 33.3%; */
+       column-gap: 5rem;
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*align-items para flex-direction: column; ya que justify-content solo sirve para diaplay flex que viene por defecto como flex.direction: row;*/
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: 400; /* o font-weight: normal; es lo mismo*/
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+    
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+/*formulario*/
+.formulario {
+    background-color: var(--gris);
+    width: min( 60rem, 100% ); /*utiliza el valor mas pequeño*/
+    margin: 0 auto; /*se utiliza cuando el padre no es un display flex y este no sea de tipo block*/
+    padding: 2rem;
+    border-radius: 1rem;
+    
+}
+
+.formulario fieldset {
+    border: none;
+}
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+.contenedor-campos {
+
+}
+
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+
+}
